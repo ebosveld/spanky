@@ -1,0 +1,15 @@
+{
+  "name": "spanky",
+  "version": "0.1.0",
+  "description": "Spanky is a Discord bot for Fetish&Co. It's initial use it to greet new people to the server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Edwin Bosveld <esbosveld@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0"
+  }
+}
