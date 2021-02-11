@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const http = require('http');
 require('dotenv').config();
 
 const client = new Discord.Client();
@@ -46,3 +47,9 @@ client.on("guildMemberAdd", (member) => {
 });
 
 client.login();
+
+const server = http.createServer((req, res) => {
+    res.writeHead(200);
+    res.end('ok');
+});
+server.listen(3000);
