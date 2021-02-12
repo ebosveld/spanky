@@ -1,7 +1,6 @@
-const Discord = require("discord.js");
-const http = require('http');
 require('dotenv').config();
 
+const Discord = require("discord.js");
 const client = new Discord.Client();
 
 const greeting = [
@@ -18,7 +17,7 @@ const welcome = [
     "Awesome to see you here",
     "Nice to meet you",
     "Welcome aboard",
-    "I'm happy your here",
+    "I'm happy you're here",
     "Welcome in this community"
 ];
 
@@ -47,9 +46,3 @@ client.on("guildMemberAdd", (member) => {
 });
 
 client.login();
-
-const server = http.createServer((req, res) => {
-    res.writeHead(200);
-    res.end('ok');
-});
-server.listen(3000);
