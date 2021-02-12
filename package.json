@@ -4,6 +4,7 @@
   "description": "Spanky is a Discord bot for Fetish&Co. It's initial use it to greet new people to the server",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Edwin Bosveld <esbosveld@gmail.com>",
