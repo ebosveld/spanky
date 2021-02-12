@@ -34,6 +34,7 @@ client.on("ready", () => {
 
 client.on("message", (message) => {
     if (message.author.bot) return; 
+    if (message.content.includes("@here") || message.content.includes("@everyone")) return false;
     if (!message.mentions.has(client.user.id)) return;
 
     message.channel.send("Sorry, I'm a bit shy and don't respond to messages. I will keep welcoming new users though.");
