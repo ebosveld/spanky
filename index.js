@@ -22,10 +22,10 @@ const welcome = [
 ];
 
 const emojis = [
-    "grin",
-    "heart_eyes",
-    "kissing_heart",
-    "tada"
+    ":grin:",
+    ":heart_eyes:",
+    ":kissing_heart:",
+    ":tada:"
 ];
 
 client.on("ready", () => {
@@ -50,9 +50,9 @@ client.on("guildMemberAdd", (member) => {
     const randomWelcome = welcome[Math.floor(Math.random() * welcome.length)];
     const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
     
-    const emoji = client.emojis.cache.find(emoji => emoji.name === randomEmoji);
+    //const emoji = client.emojis.cache.find(emoji => emoji.name === randomEmoji);
 
-    channel.send(`${randomGreeting} ${member.user}! ${randomWelcome}. Please tell us a bit about yourself in ${introChannel} and have a read through the ${rulesChannel}. Above all, have fun. Our staff are here to help you! ${emoji}`);
+    channel.send(`${randomGreeting} ${member.user}! ${randomWelcome}. Please tell us a bit about yourself in ${introChannel} and have a read through the ${rulesChannel}. Above all, have fun. Our staff are here to help you! ${randomEmoji}`);
 });
 
 client.login();
