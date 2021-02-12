@@ -41,6 +41,7 @@ client.on("message", (message) => {
 
 client.on("guildMemberAdd", (member) => {
     if(member.bot) return; 
+    console.log(`New member added to server ${member.user.tag}`);
 
     const channel = member.guild.channels.cache.find(ch => ch.name.startsWith('general'));
     const introChannel = member.guild.channels.cache.find(ch => ch.name.startsWith('intros'));
