@@ -21,13 +21,20 @@ const welcome = [
     "Welcome in this community"
 ];
 
+const emojis = [
+    "grin",
+    "heart_eyes",
+    "kissing_heart",
+    "tada"
+];
+
 client.on("ready", () => {
   console.log("I am ready!");
 });
 
 client.on("message", (message) => {
-    const prefixMention = new RegExp(`^<@!?${client.user.id}> `);
-    if (!message.content.match(prefixMention) || message.author.bot) return; 
+    if (message.author.bot) return; 
+    if (!message.mentions.has(client.user.id)) return;
 
     message.channel.send("Sorry, I'm a bit shy and don't respond to messages. I will keep welcoming new users though.");
 });
@@ -35,14 +42,17 @@ client.on("message", (message) => {
 client.on("guildMemberAdd", (member) => {
     if(member.bot) return; 
 
-    const channel = member.guild.channels.cache.find(ch => ch.name === 'general');
+    const channel = member.guild.channels.cache.find(ch => ch.name.startsWith('general'));
     const introChannel = member.guild.channels.cache.find(ch => ch.name.startsWith('intros'));
     const rulesChannel = member.guild.channels.cache.find(ch => ch.name.startsWith('the-rules'));
 
     const randomGreeting = greeting[Math.floor(Math.random() * greeting.length)];
     const randomWelcome = welcome[Math.floor(Math.random() * welcome.length)];
+    const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+    
+    const emoji = client.emojis.cache.find(emoji => emoji.name === randomEmoji);
 
-    channel.send(`${randomGreeting} ${member.user}! ${randomWelcome}. Please tell us a bit about yourself in ${introChannel} and have a read through the ${rulesChannel}. Above all, have fun. Our staff are here to help you! :grin:`);
+    channel.send(`${randomGreeting} ${member.user}! ${randomWelcome}. Please tell us a bit about yourself in ${introChannel} and have a read through the ${rulesChannel}. Above all, have fun. Our staff are here to help you! ${emoji}`);
 });
 
 client.login();
